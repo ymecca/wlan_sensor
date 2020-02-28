@@ -9,7 +9,7 @@ WLAN_IP = sp.getoutput('ifconfig wlan0 | grep mask | awk \'{print$2\'}')
 WLAN_RATE = WLAN_RATE.replace("Rate=","")
 WLAN_SIGNAL = WLAN_SIGNAL.replace("level=","")
 
-with open('SENSOR.csv', 'w', newline='') as csvfile:
+with open('DATABASE.csv', 'w', newline='') as csvfile:
     PRINTER = csv.writer(csvfile, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
     PRINTER.writerow([WLAN_IP]+[WLAN_RATE]+[WLAN_SIGNAL])
