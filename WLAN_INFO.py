@@ -16,10 +16,10 @@ DATA['WLAN'] = []
 DATA['WLAN'].append({
     'WLAN_RATE(Mbps)': WLAN_RATE,
     'WLAN_SIGNAL(dBM)': WLAN_SIGNAL,
-    'WLAN_IPV4': WLAN_IPV4,
-    'WLAN_TIME': WLAN_TIME
-
+    'WLAN_TIME': WLAN_TIME,
+    'WLAN_IPV4': WLAN_IPV4
 })
 
 with open('DATABASE.json', 'w') as outfile:
     json.dump(DATA, outfile)
+
