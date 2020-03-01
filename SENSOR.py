@@ -1,6 +1,6 @@
 import socket
 import os
-
+import WLAN_INFO
 
 host = '192.168.1.86'
 port = 9999
