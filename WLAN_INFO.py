@@ -1,6 +1,6 @@
 import os
 import subprocess as sp
-import json
+import csv 
 import time
 import datetime
 
@@ -17,7 +17,6 @@ WLAN_TX_POWER = WLAN_TX_POWER.replace("Tx-Power=","")
 WLAN_RATE = WLAN_RATE.replace("Rate=","")
 WLAN_SIGNAL = WLAN_SIGNAL.replace("level=","")
 WLAN_RETRIES = WLAN_RETRIES.replace("retries:","")
-#WLAN_ID = WLAN_ID.replace(".","")
 
 DATA = {}
 DATA['WLAN'] = []
@@ -31,7 +30,10 @@ DATA['WLAN'].append({
 
 })
 
-with open('/home/pi/wlan_sensor/client/DATABASE/DATABASE.json', 'w') as outfile:
-    json.dump(DATA, outfile)
+with open('/home/pi/wlan_sensor/client/DATABASE/DATABASE.csv', 'a+', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow([WLAN_ID, WLAN_RATE, WLAN_SIGNAL, WLAN_IPV4, WLAN_HARDWARE_MAC, WLAN_TX_POWER, WLAN_RETRIES])
+
+
 
 
