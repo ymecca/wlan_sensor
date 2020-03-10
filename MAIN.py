@@ -10,13 +10,13 @@ while True:
 
     i = 0
     while i < 6:
-        WLAN_INFO
+        WLAN_INFO.WLAN_PROCESS()
         time.sleep(1)
         print(i)
         i +=1
 
     print("Transmit file to the Collector Server")
-    WLAN_CONNECTOR
+    WLAN_CONNECTOR.WLAN_SCP()
     print("Cleaning CSV File")
     sp.getoutput('cat /home/pi/wlan_sensor/client/DATABASE/DATABASE.csv')
     #sp.getoutput('rm -rf /home/pi/wlan_sensor/client/DATABASE/DATABASE.csv')
