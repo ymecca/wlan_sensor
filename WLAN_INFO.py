@@ -31,7 +31,7 @@ def WLAN_PROCESS():
                 }
 		
         WLAN_TIME = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
-        WLAN_JSON_FILE = 'DATABASE_'+WLAN_TIME+'.json'
+        WLAN_JSON_FILE = 'DATABASE_'+WLAN_TIME+'.tempjson'
 
         with open('/home/pi/wlan_sensor/client/DATABASE/'+WLAN_JSON_FILE, 'w') as json_file:
                 json.dump(WLAN_DATA, json_file, indent=4)

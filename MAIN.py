@@ -1,6 +1,7 @@
 import time
 import WLAN_INFO
 import WLAN_CONNECTOR
+import WLAN_JSON_MERGE
 import os
 import subprocess as sp
 
@@ -9,16 +10,15 @@ while True:
 
 
     i = 0
-    while i < 6:
+    while i < 60:
         WLAN_INFO.WLAN_PROCESS()
         time.sleep(1)
         print(i)
         i +=1
-
+    
+    print("Merging JSON Files")
+    WLAN_JSON_MERGE.WLAN_MERGE() 
     print("Transmit file to the Collector Server")
     WLAN_CONNECTOR.WLAN_SCP()
-    print("Cleaning CSV File")
-    sp.getoutput('cat /home/pi/wlan_sensor/client/DATABASE/DATABASE.csv')
-    #sp.getoutput('rm -rf /home/pi/wlan_sensor/client/DATABASE/DATABASE.csv')
-    print("Countdown 5sec...")
-    time.sleep(5)
+    print("Cleaning JSON Files")
+    sp.getoutput('rm /home/pi/wlan_sensor/client/DATABASE/*.*')   
