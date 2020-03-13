@@ -4,6 +4,7 @@ import json
 import time
 import datetime
 
+
 def WLAN_PROCESS():
 
         WLAN_RATE = sp.getoutput('iwconfig wlan0 | grep Rate | awk \'{print$2\'}')
@@ -30,8 +31,12 @@ def WLAN_PROCESS():
                 'WLAN_TX_POWER(dBm)': WLAN_TX_POWER
 
         })
-        with open('/home/pi/wlan_sensor/client/DATABASE/DATABASE.json', 'w') as json_file:
-                json.dump(WLAN_DATA, json_file)
+		
+        WLAN_TIME = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
+        WLAN_JSON_FILE = 'DATABASE_'+WLAN_TIME+'.json'
+
+        with open('/home/pi/wlan_sensor/client/DATABASE/'+WLAN_JSON_FILE, 'w') as json_file:
+                json.dump(WLAN_DATA, json_file, indent=4)
 
 
 
