@@ -20,9 +20,8 @@ def WLAN_PROCESS():
         WLAN_SIGNAL = WLAN_SIGNAL.replace("level=","")
         WLAN_RETRIES = WLAN_RETRIES.replace("retries:","")
 
-        WLAN_DATA = {}
-        WLAN_DATA['WLAN'] = []
-        WLAN_DATA['WLAN'].append({
+        WLAN_DATA = [] 
+        WLAN_DATA.append({
                 'WLAN_TIME': WLAN_ID,
                 'WLAN_HARDWARE_MAC': WLAN_HARDWARE_MAC,
                 'WLAN_IPV4': WLAN_IPV4,
