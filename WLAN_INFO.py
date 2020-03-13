@@ -20,16 +20,15 @@ def WLAN_PROCESS():
         WLAN_SIGNAL = WLAN_SIGNAL.replace("level=","")
         WLAN_RETRIES = WLAN_RETRIES.replace("retries:","")
 
-        WLAN_DATA = [] 
-        WLAN_DATA.append({
+        WLAN_DATA = {
+        #WLAN_DATA.append(
                 'WLAN_TIME': WLAN_ID,
                 'WLAN_HARDWARE_MAC': WLAN_HARDWARE_MAC,
                 'WLAN_IPV4': WLAN_IPV4,
                 'WLAN_RATE(Mbps)': WLAN_RATE,
                 'WLAN_SIGNAL(dBm)': WLAN_SIGNAL,
                 'WLAN_TX_POWER(dBm)': WLAN_TX_POWER
-
-        })
+                }
 		
         WLAN_TIME = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
         WLAN_JSON_FILE = 'DATABASE_'+WLAN_TIME+'.json'
