@@ -10,7 +10,7 @@ def WLAN_PROCESS():
         WLAN_RATE = sp.getoutput('iwconfig wlan0 | grep Rate | awk \'{print$2\'}')
         WLAN_SIGNAL = sp.getoutput('iwconfig wlan0 | grep Quality | awk \'{print$4\'}')
         WLAN_IPV4 = sp.getoutput('ifconfig wlan0 | grep mask | awk \'{print$2\'}')
-        WLAN_ID = time.time()
+        WLAN_ID = int(time.time()) 
         WLAN_HARDWARE_MAC = sp.getoutput('ifconfig wlan0 | grep ether | awk \'{print$2\'}')
         WLAN_TX_POWER = sp.getoutput('iwconfig wlan0 | grep Rate | awk \'{print$4\'}')
         WLAN_RETRIES = sp.getoutput('iwconfig wlan0 | grep "excessive retries" | awk \'{print$3\'}')
