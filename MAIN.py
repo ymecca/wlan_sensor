@@ -10,9 +10,9 @@ while True:
 
 
     i = 0
-    while i < 60:
+    while i < 15:
         WLAN_INFO.WLAN_PROCESS()
-        time.sleep(1)
+        time.sleep(4)
         print(i)
         i +=1
     
