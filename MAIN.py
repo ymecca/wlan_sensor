@@ -5,19 +5,31 @@ import WLAN_JSON_MERGE
 import os
 import subprocess as sp
 
-
+def WLAN_SERVER_MERGE():
+    print("O) TRYING TO MERGE THE JSON FILES")
+    try:
+        WLAN_JSON_MERGE.WLAN_MERGE()
+        print("----MERGED SUCCESSFULLY!")
+        WLAN_SERVER_CONNECTOR()
+    except:
+        print("MERGE FAILED. SKIPPING\n\n#################################################")
+		
+		
 def WLAN_SERVER_CONNECTOR():
-    print("TRYING TO TRANSMIT FILE TO THE COLLECTOR SERVER")
+    print("O) TRYING TO TRANSMIT FILE TO THE COLLECTOR SERVER")
     try:
         WLAN_CONNECTOR.WLAN_SCP()
         print("----CONNECTION SUCCESSFUL!")
         print("CLEANING JSON FILES\n\n#################################################")
         sp.getoutput('rm /home/pi/wlan_sensor/client/DATABASE/*.*')
     except:
-        print("CONNECTION FAILED. SKIPPING\n\n#################################################")
+        print("----CONNECTION FAILED. SKIPPING\n\n#################################################")
 
-while True:
-    print("\n\n#################################################\n\nCOLLECTING WLAN INFORMATION FROM THE OS. PLEASE WAIT 60s")
+
+if __name__ == '__main__':
+
+  while True:
+    print("\n\n#################################################\n\nO) COLLECTING WLAN INFORMATION FROM THE OS. PLEASE WAIT 60s")
 
     i = 1
     while i < 16:
@@ -26,6 +38,4 @@ while True:
         print("---- COLLECTED "+str(i)+"/15")
         i +=1
 
-    print("MERGING JSON FILES")
-    WLAN_JSON_MERGE.WLAN_MERGE()
-    WLAN_SERVER_CONNECTOR()    
+    WLAN_SERVER_MERGE()
