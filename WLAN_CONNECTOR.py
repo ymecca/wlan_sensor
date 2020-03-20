@@ -12,6 +12,7 @@ def WLAN_SCP():
         # SCPCLient takes a paramiko transport as an argument
         scp = SCPClient(ssh.get_transport())
         scp.put('/home/pi/wlan_sensor/client/DATABASE/DATABASE.json', '/home/devnet/wlan_sensor/client/DATABASE.json')
+        scp.close()
 
 if __name__ == '__main__':
         WLAN_SCP()
