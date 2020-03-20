@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import hashlib
 import os
 import subprocess as sp
@@ -49,13 +34,13 @@ def WLAN_PROCESS():
                 'WLAN_RATE(Mbps)': WLAN_RATE,
                 'WLAN_SIGNAL(dBm)': WLAN_SIGNAL,
                 'WLAN_TX_POWER(dBm)': WLAN_TX_POWER,
-				'WLAN_RETRIES': WLAN_RETRIES
+                                'WLAN_RETRIES': WLAN_RETRIES
                 }
 
         WLAN_TIME = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
         WLAN_JSON_FILE = 'DATABASE_'+WLAN_TIME+'.tempjson'
 
-        with open('/home/pi/wlan_sensor/client/DATABASE/'+WLAN_JSON_FILE, 'w') as json_file:
+        with open('/home/pi/wlan_sensor/client/WLAN_PASSIVE/DATABASE/'+WLAN_JSON_FILE, 'w') as json_file:
                 json.dump(WLAN_DATA, json_file, indent=4)
 
 

@@ -13,15 +13,15 @@ def WLAN_SERVER_MERGE():
         WLAN_SERVER_CONNECTOR()
     except:
         print("MERGE FAILED. SKIPPING\n\n#################################################")
-		
-		
+
+
 def WLAN_SERVER_CONNECTOR():
     print("O) TRYING TO TRANSMIT FILE TO THE COLLECTOR SERVER")
     try:
         WLAN_CONNECTOR.WLAN_SCP()
         print("----CONNECTION SUCCESSFUL!")
-        print("CLEANING JSON FILES\n\n#################################################")
-        sp.getoutput('rm /home/pi/wlan_sensor/client/DATABASE/*.*')
+        print("O) CLEANING JSON FILES\n\n#################################################")
+        sp.getoutput('rm /home/pi/wlan_sensor/client/WLAN_PASSIVE/DATABASE/*.*')
     except:
         print("----CONNECTION FAILED. SKIPPING\n\n#################################################")
 
@@ -39,3 +39,4 @@ if __name__ == '__main__':
         i +=1
 
     WLAN_SERVER_MERGE()
+
