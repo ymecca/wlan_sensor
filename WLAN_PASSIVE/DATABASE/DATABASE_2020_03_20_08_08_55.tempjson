@@ -1,0 +1,10 @@
+{
+    "WLAN_ID": "94c2e14c2bee9fa352c87da4e381c730eabfb6dc0002836c52ab684e19291bd1",
+    "WLAN_TIME": 1584706135,
+    "WLAN_HARDWARE_MAC": "dc:a6:32:2c:a0:a3",
+    "WLAN_IPV4": "192.168.1.79",
+    "WLAN_RATE(Mbps)": "97.5",
+    "WLAN_SIGNAL(dBm)": "-72",
+    "WLAN_TX_POWER(dBm)": "31",
+    "WLAN_RETRIES": "22"
+}
