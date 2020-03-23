@@ -49,7 +49,7 @@ def WLAN_PROCESS_IPERF():
         WLAN_SERVER = sp.getoutput('avahi-resolve -4 --name wlan-server.local | awk \'{print $2}\'')
 
         WLAN_IPERF_UPLOAD = sp.getoutput('iperf3 -c '+WLAN_SERVER+' -P 10 -i 5 -t 5 -f m | grep SUM | grep "receiver" | awk \'{print $6}\'')
-        WLAN_IPERF_DOWNLOAD = sp.getoutput('iperf3 -c '+WLAN_SERVER+'-P 10 -i 5 -t 5 -R -f m | grep SUM | grep sender | awk \'{print $6}\'')
+        WLAN_IPERF_DOWNLOAD = sp.getoutput('iperf3 -c '+WLAN_SERVER+' -P 10 -i 5 -t 5 -R -f m | grep SUM | grep sender | awk \'{print $6}\'')
 
         WLAN_HASH =  (str(WLAN_TIME) + WLAN_HARDWARE_MAC)
         WLAN_SHA = hashlib.sha256(WLAN_HASH.encode())
@@ -127,6 +127,8 @@ def WLAN_PROCESS_BASE():
         WLAN_SHA = hashlib.sha256(WLAN_HASH.encode())
         WLAN_ID = WLAN_SHA.hexdigest()
 
+        WLAN_IPERF_UPLOAD = ''
+        WLAN_IPERF_DOWNLOAD = ''
 
         WLAN_DATA = {
                 'WLAN_ID': WLAN_ID,
@@ -146,7 +148,9 @@ def WLAN_PROCESS_BASE():
                 'WLAN_HTTP_BBC': int(float(WLAN_HTTP_BBC) * 1000),
                 'WLAN_HTTP_GOOGLE': int(float(WLAN_HTTP_GOOGLE) * 1000),
                 'WLAN_DHCP_TIME': int(float(WLAN_DHCP_TIME) * 1000),
-                'WLAN_DHCP_STATUS': int(float(WLAN_DHCP_STATUS))
+                'WLAN_DHCP_STATUS': int(float(WLAN_DHCP_STATUS)),
+		'WLAN_IPERF_UPLOAD': WLAN_IPERF_UPLOAD,
+                'WLAN_IPERF_DOWNLOAD': WLAN_IPERF_DOWNLOAD
                 }
 
         WLAN_TIME = datetime.datetime.now().strftime("%Y_%m_%d_%H_%M_%S")
