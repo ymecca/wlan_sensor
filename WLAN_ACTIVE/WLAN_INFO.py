@@ -55,9 +55,9 @@ def WLAN_PROCESS_IPERF():
         WLAN_SHA = hashlib.sha256(WLAN_HASH.encode())
         WLAN_ID = WLAN_SHA.hexdigest()
 
-        WLAN_SPEEDTEST_UP = ''
-        WLAN_SPEEDTEST_DOWN = ''
-        WLAN_SPEEDTEST_RTT = ''
+        WLAN_SPEEDTEST_UP = '-1'
+        WLAN_SPEEDTEST_DOWN = '-1'
+        WLAN_SPEEDTEST_RTT = '-1'
 
         WLAN_DATA = {
                 'WLAN_ID': WLAN_ID,
@@ -78,9 +78,9 @@ def WLAN_PROCESS_IPERF():
                 'WLAN_HTTP_GOOGLE': int(float(WLAN_HTTP_GOOGLE) * 1000),
                 'WLAN_DHCP_TIME': int(float(WLAN_DHCP_TIME) * 1000),
                 'WLAN_DHCP_STATUS': int(float(WLAN_DHCP_STATUS)),
-				'WLAN_SPEEDTEST_UP': WLAN_SPEEDTEST_UP,
-				'WLAN_SPEEDTEST_DOWN': WLAN_SPEEDTEST_DOWN,
-				'WLAN_SPEEDTEST_RTT': WLAN_SPEEDTEST_RTT,
+		'WLAN_SPEEDTEST_UP': WLAN_SPEEDTEST_UP,
+		'WLAN_SPEEDTEST_DOWN': WLAN_SPEEDTEST_DOWN,
+		'WLAN_SPEEDTEST_RTT': WLAN_SPEEDTEST_RTT,
                 'WLAN_IPERF_UPLOAD': int(float(WLAN_IPERF_UPLOAD)),
                 'WLAN_IPERF_DOWNLOAD': int(float(WLAN_IPERF_DOWNLOAD))
                 }
@@ -133,12 +133,12 @@ def WLAN_PROCESS_BASE():
         WLAN_SHA = hashlib.sha256(WLAN_HASH.encode())
         WLAN_ID = WLAN_SHA.hexdigest()
 
-        WLAN_IPERF_UPLOAD = ''
-        WLAN_IPERF_DOWNLOAD = ''
+        WLAN_IPERF_UPLOAD = '-1'
+        WLAN_IPERF_DOWNLOAD = '-1'
 		
-        WLAN_SPEEDTEST_UP = ''
-        WLAN_SPEEDTEST_DOWN = ''
-        WLAN_SPEEDTEST_RTT = ''
+        WLAN_SPEEDTEST_UP = '-1'
+        WLAN_SPEEDTEST_DOWN = '-1'
+        WLAN_SPEEDTEST_RTT = '-1'
 
         WLAN_DATA = {
                 'WLAN_ID': WLAN_ID,
@@ -159,9 +159,9 @@ def WLAN_PROCESS_BASE():
                 'WLAN_HTTP_GOOGLE': int(float(WLAN_HTTP_GOOGLE) * 1000),
                 'WLAN_DHCP_TIME': int(float(WLAN_DHCP_TIME) * 1000),
                 'WLAN_DHCP_STATUS': int(float(WLAN_DHCP_STATUS)),
-				'WLAN_SPEEDTEST_UP': WLAN_SPEEDTEST_UP,
-				'WLAN_SPEEDTEST_DOWN': WLAN_SPEEDTEST_DOWN,
-				'WLAN_SPEEDTEST_RTT': WLAN_SPEEDTEST_RTT,
+		'WLAN_SPEEDTEST_UP': WLAN_SPEEDTEST_UP,
+		'WLAN_SPEEDTEST_DOWN': WLAN_SPEEDTEST_DOWN,
+		'WLAN_SPEEDTEST_RTT': WLAN_SPEEDTEST_RTT,
                 'WLAN_IPERF_UPLOAD': WLAN_IPERF_UPLOAD,
                 'WLAN_IPERF_DOWNLOAD': WLAN_IPERF_DOWNLOAD
                 }

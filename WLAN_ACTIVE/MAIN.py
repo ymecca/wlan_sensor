@@ -29,14 +29,14 @@ def WLAN_SERVER_CONNECTOR():
 if __name__ == '__main__':
 
   while True:
-    print("\n\n#################################################\n\nO) STARTING ACTIVE COLLECTING INFORMATIONS FROM THE OS. PLEASE WAIT 60s")
+    print("\n\n#################################################\n\nO) STARTING ACTIVE COLLECTING INFORMATIONS FROM THE OS. PLEASE WAIT!" )
 
     i = 0
-    while i < 5:
+    while i < 20:
         WLAN_INFO.WLAN_PROCESS_BASE()
         time.sleep(4)
         i +=1
-        print("---- COLLECTED BASE "+str(i)+"/5")
+        print("---- COLLECTED BASE "+str(i)+"/20")
 
 
     i = 0
@@ -49,5 +49,5 @@ if __name__ == '__main__':
 
     WLAN_SERVER_MERGE()
     print("COUNTDOWN 1800s\n\n#################################################")
-    time.sleep(1800)
+    time.sleep(10)
 
