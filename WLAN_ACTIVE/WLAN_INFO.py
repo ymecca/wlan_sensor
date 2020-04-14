@@ -14,7 +14,7 @@ def WLAN_PROCESS_IPERF():
         WLAN_IPV4 = sp.getoutput('ifconfig wlan0 | grep mask | awk \'{print$2\'}')
 
         #BASE COMMANDS
-                ### DHCP TIME
+        ### DHCP TIME
 
 
         WLAN_DHCP_STATUS = sp.getoutput('sudo nmap --script broadcast-dhcp-discover  > .DHCP_CHECK.txt 2>&1 ; cat .DHCP_CHECK.txt | grep "DHCP Message Type:" | awk \'{print $5}\'')
@@ -46,7 +46,7 @@ def WLAN_PROCESS_IPERF():
 
 
         #SPECIAL COMMANDS
-        WLAN_SERVER = sp.getoutput('avahi-resolve -4 --name wlan-server.local | awk \'{print $2}\'')
+        WLAN_SERVER = sp.getoutput('cat /home/pi/wlan_sensor/client/WLAN_SERVER.txt')
 
         WLAN_IPERF_UPLOAD = sp.getoutput('iperf3 -c '+WLAN_SERVER+' -P 10 -i 5 -t 5 -f m | grep SUM | grep "receiver" | awk \'{print $6}\'')
         WLAN_IPERF_DOWNLOAD = sp.getoutput('iperf3 -c '+WLAN_SERVER+' -P 10 -i 5 -t 5 -R -f m | grep SUM | grep sender | awk \'{print $6}\'')
